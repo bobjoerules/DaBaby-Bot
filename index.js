@@ -162,7 +162,7 @@ client.on('interactionCreate', async interaction => {
       new ButtonBuilder()
         .setCustomId('primary')
         .setLabel('This does nothing ok?')
-        .setStyle('DANGER')
+        .setStyle('Danger')
         .setDisabled(true),
       new ButtonBuilder()
         .setCustomId('secound')
