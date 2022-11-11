@@ -188,7 +188,6 @@ client.on('interactionCreate', async interaction => {
     factembed.setDescription(facts[fact])
     factembed.setColor("#" + randomColor)
     factembed.setTimestamp()
-    await interaction.reply({embeds: [factembed]});
     const row = new ActionRowBuilder()
     .addComponents(
       new ButtonBuilder()
@@ -196,6 +195,7 @@ client.on('interactionCreate', async interaction => {
         .setLabel('Next Fact')
         .setStyle('Success'),
     )
+    await interaction.reply({embeds: [factembed] , ephemeral: false , components: [row]});
   }
   if (interaction.commandName === 'ping') {
     const pong = new EmbedBuilder();
