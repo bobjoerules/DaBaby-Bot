@@ -191,7 +191,7 @@ client.on('interactionCreate', async interaction => {
     const row = new ActionRowBuilder()
     .addComponents(
       new ButtonBuilder()
-        .setCustomId('next')
+        .setCustomId('nextfact')
         .setLabel('Next Fact')
         .setStyle('Success'),
     )
