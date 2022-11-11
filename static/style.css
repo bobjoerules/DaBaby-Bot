@@ -1,0 +1,75 @@
+body {
+  background-color:#181818;
+  background-image: url('/static/beta big.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+h1 {
+  color:white; font-family:verdana;
+}
+h2 {
+  color:white; font-family:verdana;
+}
+p {
+  color:white; font-family:verdana;
+}
+      a.book:link {
+        color: grey;
+        background-color: transparent;
+        text-decoration: none;
+        padding: 15px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        background-color: black;
+      }
+
+      a.book:visited {
+        color: grey;
+        background-color: transparent;
+        text-decoration: none;
+      }
+
+      a.book:hover {
+        color: lightgrey;
+        background-color: transparent;
+        text-decoration: underline;
+      }
+
+      a.book:active {
+        color: black;
+        background-color: transparent;
+        text-decoration: underline;
+        background-color: white;
+      }
+      a.book1:link {
+        color: grey;
+        background-color: transparent;
+        text-decoration: none;
+        padding: 1px 15px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        background-color: black;
+      }
+
+      a.book1:visited {
+        color: grey;
+        background-color: transparent;
+        text-decoration: none;
+      }
+
+      a.book1:hover {
+        color: lightgrey;
+        background-color: transparent;
+        text-decoration: underline;
+      }
+
+      a.book1:active {
+        color: black;
+        background-color: transparent;
+        text-decoration: underline;
+        background-color: white;
+      }

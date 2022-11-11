@@ -1,0 +1,33 @@
+ap.on('posted', () => {
+  const stats = new MessageEmbed();
+  stats.setTitle('Server count posted to top.gg')
+  stats.setColor('FF3366')
+  stats.setTimestamp()
+
+  client.channels.cache.get('838264759899652137').send({embeds:[stats]})
+})
+
+app.post("/dblwebhook", webhook.listener(vote => {
+  // vote will be your vote object, e.g
+  console.log('user: ' + vote.user + ' voted') 
+  const votetop = new MessageEmbed(); 
+  votetop.setTitle('New vote on top.gg!!!')
+  votetop.setDescription(`<@${vote.user}> voted on top.gg`)
+  votetop.setColor('FF3366')
+  votetop.setThumbnail('https://i.imgur.com/UyNFNmL.png')
+client.channels.cache.get('951578080210735184').send({embeds:[votetop]})
+  const votedm = new MessageEmbed(); 
+  votedm.setTitle('Thanks for voting!!!')
+  votedm.setDescription('Thank you so much for voting this bot on top.gg ❤️')
+  votedm.setColor('FF3366')
+  votedm.setThumbnail('https://i.imgur.com/UyNFNmL.png')
+  client.users.fetch(vote.user).then(u => u.send({embeds:[votedm]}))
+}))
+
+
+const { AutoPoster } = require('topgg-autoposter')
+
+const ap = AutoPoster(process.env.TOPTOKEN, client)
+
+const Topgg = require("@top-gg/sdk")
+const webhook = new Topgg.Webhook(process.env.WEB)
