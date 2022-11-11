@@ -53,9 +53,10 @@ client.on('interactionCreate', async interaction => {
   var randomColor = Math.floor(Math.random()*16777215).toString(16);
   used = false
   if (interaction.isButton()) {
-    const { buttonName } = interaction;
-    console.log(interaction.buttonName)
+    if (interaction.customId ==='rickroll'){
+    console.log(interaction.customId)
     await interaction.reply({content: 'Never gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\nhttps://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley', ephemeral: true });
+    }
   }
 	if (!interaction.isCommand()) return;
 
@@ -156,18 +157,22 @@ client.on('interactionCreate', async interaction => {
     const suggestion = new EmbedBuilder();
     suggestion.setColor('ffff00')
     suggestion.setTitle('Suggest your suggestions on the google form linked:')
-    suggestion.addFields({name: "Click link below",value: "[https://forms.gle/LpZubqihvNfseDhbA](https://forms.gle/LpZubqihvNfseDhbA)", inline: true })
     const row = new ActionRowBuilder()
     .addComponents(
       new ButtonBuilder()
-        .setCustomId('primary')
+        .setCustomId('nothing')
         .setLabel('This does nothing ok?')
         .setStyle('Danger')
         .setDisabled(true),
       new ButtonBuilder()
-        .setCustomId('secound')
+        .setCustomId('rickroll')
         .setLabel('This does tho')
-        .setStyle('Success')
+        .setStyle('Success'),
+    
+      new ButtonBuilder()
+      .setURL('https://forms.gle/LpZubqihvNfseDhbA')
+      .setLabel('https://forms.gle/LpZubqihvNfseDhbA')
+      .setStyle('Link')
     )
     suggestion.setTimestamp()
 		await interaction.reply({ embeds: [suggestion] , ephemeral: false , components: [row]});
