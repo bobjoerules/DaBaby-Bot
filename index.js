@@ -4,7 +4,7 @@ console.log("NodeJS Version: " + process.version)
 const express = require('express');
 require('dotenv').config()
 
-const { Client, GatewayIntentBits, MessageAttachment, Message, EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js');
+const { Client, GatewayIntentBits, AttachmentBuilder, Message, EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js');
 
 const client = new Client({
   intents: [
@@ -106,28 +106,49 @@ client.on('interactionCreate', async interaction => {
   if (interaction.commandName === 'lessgo') {
     await interaction.reply({ content: 'Lessgo!',  files: ["./vids/lessgo.mp4"]});
   }
-	if (interaction.commandName === 'meme') {
-    var randomnum = Math.round(Math.random() * 2)
+	if (interaction.commandName === 'meme'|| interaction.customId ==='nextmeme') {
+    var randomnum = Math.round(Math.random() * 4)
     console.log(randomnum)
-    if (randomnum === 2){
+    if (randomnum === 2 || randomnum === 1){
       var memes = ["mail001.jpg", "starbuck001.jpg", "italian001.jpg", "pea001.jpg", "car001.jpg", "car002.jpg", "spotify001.jpg", "daplane001.jpg", "3dcar001.jpg", "attackontitan001.jpg", "glass001.png", "fnf001.png", "cool001.jpg", "finalboss.jpg", "exam001.jpg", "spongebob001.jpg", "mario001.jpg", "card001.jpg", "realdababy001.jpg", "dababyinmc001.jpg", "white001.jpg", "DAVINCI001.jpg", "school001.jpg"];
       var meme = Math.floor(Math.random() * memes.length);
       var colors = ["#0099ff", "", ""];
-      const attachment = new MessageAttachment('./images/' + memes[meme], memes[meme]);
       const embedmeme = new EmbedBuilder();
       embedmeme.setColor("#" + randomColor)
       embedmeme.setTitle(memes[meme].slice(0, -7))
-      embedmeme.setImage(`attachment://${attachment.name}`);
-      await interaction.reply({ embeds: [ embedmeme ], files: [attachment] });
+      embedmeme.setImage('attachment://' + memes[meme])
+      const row = new ActionRowBuilder()
+      .addComponents(
+        new ButtonBuilder()
+          .setCustomId('nextmeme')
+          .setLabel('Next Meme')
+          .setStyle('Success'),
+      )
+      await interaction.reply({ embeds: [ embedmeme ], files: ['./images/' + memes[meme]], components: [row]});
+    
     } else {
       if (randomnum === 0){
         var memes = ["spongebob1.mp4"]
         var meme = Math.floor(Math.random() * memes.length);
-        await interaction.reply({ content: 'Lessgo!',  files: ["./vids/" + memes[meme]]});
+        const row = new ActionRowBuilder()
+        .addComponents(
+          new ButtonBuilder()
+            .setCustomId('nextmeme')
+            .setLabel('Next Meme')
+            .setStyle('Success'),
+        )
+        await interaction.reply({ content: 'Lessgo!',  files: ["./vids/" + memes[meme]], components: [row]});
       }else{
         var memevids = ["https://www.youtube.com/watch?v=XV3f7r1ZGVU", "https://www.youtube.com/watch?v=bT7FGwTw-rY", "https://www.youtube.com/watch?v=BMPWVEXGRxA", "https://www.youtube.com/watch?v=DZpY6nr8c8g", "https://www.youtube.com/watch?v=VFn1pvYht2Y", "https://www.youtube.com/watch?v=63amyCOleOk", "https://www.youtube.com/watch?v=iSGdVuo2swg", "https://www.youtube.com/watch?v=FH_TXS56rQA", "https://www.youtube.com/watch?v=FsVxzR1Qtrs", "https://www.youtube.com/watch?v=3uuLWG-Gqtk", "https://www.youtube.com/watch?v=9at6I6ZEJXQ", "https://www.youtube.com/watch?v=GBLEXvphIgk", "https://www.youtube.com/watch?v=e2oNweTWO2Q", "https://www.youtube.com/watch?v=cC2c7EUWdr0", "https://www.youtube.com/watch?v=DcRLTClL5YU", "https://www.youtube.com/watch?v=upflDVv3k50", "https://www.youtube.com/watch?v=i-nIe8QaKfE", "https://www.youtube.com/watch?v=WWJ_35tM4wk", "https://www.youtube.com/watch?v=bYX57kWcwgQ", "https://www.youtube.com/watch?v=tuHTFatvytk", "https://youtu.be/GDVKta8zP1k", "https://youtu.be/sb_9AEV6qT4", "https://youtu.be/SczRjdY9X1o", "https://youtu.be/FsVxzR1Qtrs", "https://youtu.be/tNG9sHUxN-U", "https://youtu.be/b7tEganBpn8", "https://youtu.be/i-nIe8QaKfE", "https://youtu.be/P6MQUeVbj-o", "https://youtu.be/b0vM3FqkS_Y", "https://youtu.be/c4dsGJnVQpY", "https://youtu.be/7KTSNCCZXVc", "https://youtu.be/tuHTFatvytk", "https://youtu.be/Ep8PVrYV0dQ", "https://youtu.be/h9SdCKjC7gU", "https://youtu.be/_QRCczOSdFQ", "https://youtu.be/dLYS9XcnuIg", "https://youtu.be/ioqRj9JlpIM", "https://youtu.be/cC2c7EUWdr0", "https://youtu.be/oLHjwbLqtpw", "https://youtu.be/sBSoR2Zpg4g", "https://youtu.be/61k1JZ1RvCw"]
         var memevid = Math.floor(Math.random() * memevids.length);
-        await interaction.reply(memevids[memevid]); 
+        const row = new ActionRowBuilder()
+        .addComponents(
+          new ButtonBuilder()
+            .setCustomId('nextmeme')
+            .setLabel('Next Meme')
+            .setStyle('Success'),
+        )
+        await interaction.reply({content: memevids[memevid], components: [row]}); 
       }
     }   
 	}
