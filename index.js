@@ -63,11 +63,11 @@ client.on('interactionCreate', async interaction => {
   if (interaction.commandName === 'vote') {
     const vote = new EmbedBuilder()
     vote.setColor('FF3366')
-    vote.addField('Vote on top.gg using this Link:','[https://top.gg/bot/836069453389234206/vote](https://top.gg/bot/836069453389234206/vote)')
+    vote.addFields({name: 'Vote on top.gg using this Link:',value:'[https://top.gg/bot/836069453389234206/vote](https://top.gg/bot/836069453389234206/vote)', inline: true })
     vote.setThumbnail('https://i.imgur.com/UyNFNmL.png')
     const toper = new EmbedBuilder()
     toper.setColor('5865F2')
-    toper.addField('Vote on discordbotlist.com using this Link:','[https://discordbotlist.com/bots/dababy-not-finished/upvote](https://discordbotlist.com/bots/dababy-not-finished/upvote)')
+    toper.addFields({name: 'Vote on discordbotlist.com using this Link:',value:'[https://discordbotlist.com/bots/dababy-not-finished/upvote](https://discordbotlist.com/bots/dababy-not-finished/upvote)', inline: true })
     toper.setThumbnail('https://i.imgur.com/39vsYPN.png')
     await interaction.reply({ embeds: [ vote, toper ] });
   }
@@ -77,7 +77,7 @@ client.on('interactionCreate', async interaction => {
       const link = new EmbedBuilder()
       link.setColor('FF0000')
       link.setTitle('Bot is currently in 100 servers')
-      link.addField('Until I verify my bot please wait to add my bot and join the support server to get notifyed (bot works in dms)','[Support server: https://discord.gg/AYj39T6N](https://discord.gg/AYj39T6N)')
+      link.addFields({name: 'Until I verify my bot please wait to add my bot and join the support server to get notifyed (bot works in dms)',value:'[Support server: https://discord.gg/AYj39T6N](https://discord.gg/AYj39T6N)', inline: true })
       link.setTimestamp()
       await interaction.reply({ embeds: [ link ] });
     }else{
@@ -85,7 +85,7 @@ client.on('interactionCreate', async interaction => {
       console.log(size)
       const link = new EmbedBuilder()
       link.setColor('00FF00')
-      link.addField('Click the link below to add me to your own server:','[https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot](https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot)')
+      link.addFields({name: 'Click the link below to add me to your own server:',value:'[https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot](https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot)', inline: true })
       link.setTimestamp()
       await interaction.reply({ embeds: [ link ] });
     }
@@ -142,12 +142,12 @@ client.on('interactionCreate', async interaction => {
     const websites = new EmbedBuilder();
     websites.setColor('FFFFFF')
     websites.setTitle('Here are those websites')
-    websites.addField("The rappers website:", "[http://www.officialdababy.com/](http://www.officialdababy.com/)")
+    websites.addFields({name: "The rappers website:", value:"[http://www.officialdababy.com/](http://www.officialdababy.com/)", inline: true })
     const topdababy = new EmbedBuilder();
-    topdababy.addField("Top.gg page for bot:", "[https://top.gg/bot/836069453389234206](https://top.gg/bot/836069453389234206)")
+    topdababy.addFields({name: "Top.gg page for bot:", value:"[https://top.gg/bot/836069453389234206](https://top.gg/bot/836069453389234206)", inline: true })
     topdababy.setColor('FF3366')
     const developer = new EmbedBuilder();
-    developer.addField("Develepors website:", "[https://bobjoerules.github.io/DarkMode-sheet/](https://bobjoerules.github.io/DarkMode-sheet/)")
+    developer.addFields({name: "Develepors website:",value: "[https://bobjoerules.github.io/DarkMode-sheet/](https://bobjoerules.github.io/DarkMode-sheet/)", inline: true })
     developer.setTimestamp()
 		await interaction.reply({ embeds: [websites, topdababy, developer] , ephemeral: false });
 	}   
@@ -156,7 +156,7 @@ client.on('interactionCreate', async interaction => {
     const suggestion = new EmbedBuilder();
     suggestion.setColor('ffff00')
     suggestion.setTitle('Suggest your suggestions on the google form linked:')
-    suggestion.addField("Click link below", "[https://forms.gle/LpZubqihvNfseDhbA](https://forms.gle/LpZubqihvNfseDhbA)")
+    suggestion.addFields({name: "Click link below",value: "[https://forms.gle/LpZubqihvNfseDhbA](https://forms.gle/LpZubqihvNfseDhbA)", inline: true })
     const row = new MessageActionRow()
     .addComponents(
       new MessageButton()
@@ -205,7 +205,7 @@ client.on('messageCreate', async (message) => {
   if (message.content.toLowerCase().startsWith("dababy")) {
     const update = new EmbedBuilder()
     update.setTitle('DaBaby Bot has been updated to use slash commands and slash commands only')
-    update.addField('If you don\'t see slash commands for this bot or they are not working click this link to regive permissions and permission to add slash commands','[https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot](https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot)')
+    update.addFields({name: 'If you don\'t see slash commands for this bot or they are not working click this link to regive permissions and permission to add slash commands',value:'[https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot](https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot)', inline: true })
     update.setColor('FF0000')
     update.setTimestamp()
     message.reply({embeds: [update]})
