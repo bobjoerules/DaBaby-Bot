@@ -133,7 +133,7 @@ client.on('interactionCreate', async interaction => {
     help.setColor('00FF00')
     help.setTitle('DaBaby bot now uses slash commands(/)')
     help.setDescription('• /fact = Sends a fact about DaBaby\n • /help = Lists the commands the bot has\n• /meme = Meme related to DaBaby (either a video from YouTube or a photo)\n• /ping = Sends the bot\'s Uptime, Latency, and API Latency\n• /websites = Links to websites related to bot and DaBaby\n• /car = DaBaby is now a car\n• /invite = Invite this bot to your server\n• /suggest = Have a suggestion? Bot will send a link to a google form to fill out')
-		help.addField('Join the support server:','[https://discord.gg/AYj39T6N](https://discord.gg/AYj39T6N)')
+		help.addFields({name: 'Join the support server:', value:'[https://discord.gg/AYj39T6N](https://discord.gg/AYj39T6N)', inline: true })
     help.setFooter({text: 'Bot made by Bobjoerules'})
     help.setTimestamp()
     await interaction.reply({ embeds: [help] , ephemeral: true });
