@@ -225,5 +225,4 @@ client.on('messageCreate', async (message) => {
     message.reply({embeds: [update]})
   };
 });
-console.log(process.env.TOKEN)
 client.login(process.env.TOKEN)
