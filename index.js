@@ -4,7 +4,7 @@ console.log("NodeJS Version: " + process.version)
 const express = require('express');
 
 
-const { Client, GatewayIntentBits, MessageAttachment, Message, EmbedBuilder, MessageActionRow, MessageButton } = require('discord.js');
+const { Client, GatewayIntentBits, MessageAttachment, Message, EmbedBuilder, ActionRowBuilder, MessageButton } = require('discord.js');
 
 const client = new Client({
   intents: [
@@ -157,7 +157,7 @@ client.on('interactionCreate', async interaction => {
     suggestion.setColor('ffff00')
     suggestion.setTitle('Suggest your suggestions on the google form linked:')
     suggestion.addFields({name: "Click link below",value: "[https://forms.gle/LpZubqihvNfseDhbA](https://forms.gle/LpZubqihvNfseDhbA)", inline: true })
-    const row = new MessageActionRow()
+    const row = new ActionRowBuilder()
     .addComponents(
       new MessageButton()
         .setCustomId('primary')
