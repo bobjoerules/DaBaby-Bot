@@ -4,7 +4,7 @@ console.log("NodeJS Version: " + process.version)
 const express = require('express');
 
 
-const { Client, GatewayIntentBits, MessageAttachment, Message, EmbedBuilder, ActionRowBuilder, MessageButton } = require('discord.js');
+const { Client, GatewayIntentBits, MessageAttachment, Message, EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js');
 
 const client = new Client({
   intents: [
@@ -159,12 +159,12 @@ client.on('interactionCreate', async interaction => {
     suggestion.addFields({name: "Click link below",value: "[https://forms.gle/LpZubqihvNfseDhbA](https://forms.gle/LpZubqihvNfseDhbA)", inline: true })
     const row = new ActionRowBuilder()
     .addComponents(
-      new MessageButton()
+      new ButtonBuilder()
         .setCustomId('primary')
         .setLabel('This does nothing ok?')
         .setStyle('DANGER')
         .setDisabled(true),
-      new MessageButton()
+      new ButtonBuilder()
         .setCustomId('secound')
         .setLabel('This does tho')
         .setStyle('SUCCESS')
