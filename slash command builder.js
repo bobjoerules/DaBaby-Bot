@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder } = require('@discordjs/builders');
 
 console.log("NodeJS Version: " + process.version)
 
@@ -9,9 +9,9 @@ const { Client, Intents, MessageAttachment, GatewayIntentBits, } = require('disc
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.once('ready', () => {
-    new SlashCommandBuilder()
-    .setName('images')
-    .setDescription('Sends a random image of DaBaby')
+    var guildCommand = new SlashCommandBuilder();
+    guildCommand.setName('images')
+    guildCommand.setDescription('Sends a random image of DaBaby')
     console.log("New slash command has been made")
 });
 client.login(process.env.TOKEN)
