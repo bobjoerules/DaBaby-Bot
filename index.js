@@ -167,7 +167,7 @@ client.on('interactionCreate', async interaction => {
       new ButtonBuilder()
         .setCustomId('secound')
         .setLabel('This does tho')
-        .setStyle('SUCCESS')
+        .setStyle('Success')
     )
     suggestion.setTimestamp()
 		await interaction.reply({ embeds: [suggestion] , ephemeral: false , components: [row]});
