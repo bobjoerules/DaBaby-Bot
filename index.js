@@ -2,7 +2,7 @@
 console.log("NodeJS Version: " + process.version)
 
 const express = require('express');
-
+require('dotenv').config()
 
 const { Client, GatewayIntentBits, MessageAttachment, Message, EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js');
 
@@ -225,4 +225,5 @@ client.on('messageCreate', async (message) => {
     message.reply({embeds: [update]})
   };
 });
+console.log(process.env.TOKEN)
 client.login(process.env.TOKEN)
