@@ -13,6 +13,6 @@ const { MessageEmbed } = require('discord.js');
 client.once('ready', () => {
     new SlashCommandBuilder()
     .setName('Images')
-    .setDescription('Sends a random image of DaBaby'),
+    .setDescription('Sends a random image of DaBaby')
 });
 client.login(process.env.TOKEN)
