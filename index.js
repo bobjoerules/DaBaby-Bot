@@ -55,7 +55,8 @@ client.on('interactionCreate', async interaction => {
   if (interaction.isButton()) {
     if (interaction.customId ==='rickroll'){
     console.log(interaction.customId)
-    await interaction.reply({content: 'Never gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\nhttps://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley', ephemeral: true });
+    await interaction.followUp({content: 'Never gonna give you up\nNever gonna let you down\nNever gonna run around and desert you\nNever gonna make you cry\nNever gonna say goodbye\nNever gonna tell a lie and hurt you\nhttps://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley', ephemeral: true });
+    await interaction.deleteReply()
     }
   }
 	if (!interaction.isCommand()) return;
@@ -216,4 +217,4 @@ client.on('messageCreate', async (message) => {
     message.reply({embeds: [update]})
   };
 });
-client.login('ODM2MDY5NDUzMzg5MjM0MjA2.Gpczn_.9RfQC3DF_HiSZusFsPZ0xP1E1Cypfvgs8ICd-c')
+client.login('ODM2MDY5NDUzMzg5MjM0MjA2.GOzaeO.d79yFBwK6dXmzgbzZVkTbKnJf-ionawHfCUoPA')
