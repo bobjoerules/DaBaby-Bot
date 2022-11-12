@@ -110,7 +110,7 @@ client.on('interactionCreate', async interaction => {
     var randomnum = Math.round(Math.random() * 4)
     console.log(randomnum)
     if (randomnum === 2 || randomnum === 1){
-      var memes = ["mail001.jpg", "starbuck001.jpg", "italian001.jpg", "pea001.jpg", "car001.jpg", "car002.jpg", "spotify001.jpg", "daplane001.jpg", "3dcar001.jpg", "attackontitan001.jpg", "glass001.png", "fnf001.png", "cool001.jpg", "finalboss.jpg", "exam001.jpg", "spongebob001.jpg", "mario001.jpg", "card001.jpg", "realdababy001.jpg", "dababyinmc001.jpg", "white001.jpg", "DAVINCI001.jpg", "school001.jpg"];
+      var memes = ["mail001.jpg", "starbuck001.jpg", "italian001.jpg", "pea001.jpg", "car001.jpg", "car002.jpg", "spotify001.jpg", "daplane001.jpg", "3dcar001.jpg", "attackontitan001.jpg", "glass001.png", "fnf001.png", "cool001.jpg", "finalboss001.jpg", "exam001.jpg", "spongebob001.jpg", "mario001.jpg", "card001.jpg", "realdababy001.jpg", "dababyinmc001.jpg", "white001.jpg", "DAVINCI001.jpg", "school001.jpg"];
       var meme = Math.floor(Math.random() * memes.length);
       var colors = ["#0099ff", "", ""];
       const embedmeme = new EmbedBuilder();
