@@ -32,7 +32,6 @@ client.once('ready', () => {
    status: "online",
   });
   //sets activity
-  client.user.setActivity('Slash commands pog!!!', { type: 'PLAYING'});
   //logs that the bot restarted/started in the support server
   const restartlog = new EmbedBuilder();
     restartlog.setTitle('DaBaby bot 2.0 has been restarted')
