@@ -29,7 +29,7 @@ client.once('ready', () => {
   console.log('In ' + client.guilds.cache.size + ' servers')
   //sets th icon of if the bot is dnd, Idle, Online
   client.user.setPresence({
-    activities: [{ name: `Update to discord.js v14`, type: ActivityType.Watching }],
+    activities: [{ name: `Updated to discord.js v14`, type: ActivityType.Competing }],
     status: 'online',
   });
   //sets activity
