@@ -4,7 +4,7 @@ console.log("NodeJS Version: " + process.version)
 const express = require('express');
 require('dotenv').config()
 
-const { Client, GatewayIntentBits, AttachmentBuilder, Message, EmbedBuilder, ActionRowBuilder, ButtonBuilder } = require('discord.js');
+const { Client, GatewayIntentBits, AttachmentBuilder, Message, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ActivityType } = require('discord.js');
 
 const client = new Client({
   intents: [
@@ -29,7 +29,8 @@ client.once('ready', () => {
   console.log('In ' + client.guilds.cache.size + ' servers')
   //sets th icon of if the bot is dnd, Idle, Online
   client.user.setPresence({
-   status: "online",
+    activities: [{ name: `Update to discord.js v14`, type: ActivityType.Watching }],
+    status: 'online',
   });
   //sets activity
   //logs that the bot restarted/started in the support server
