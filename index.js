@@ -29,7 +29,7 @@ client.once('ready', () => {
   console.log('In ' + client.guilds.cache.size + ' servers')
   //sets th icon of if the bot is dnd, Idle, Online
   client.user.setPresence({
-    activities: [{ name: `Updated to discord.js v14`, type: ActivityType.Competing }],
+    activities: [{ name: `discord.js v14`, type: ActivityType.Competing }],
     status: 'online',
   });
   //sets activity
@@ -95,6 +95,9 @@ client.on('interactionCreate', async interaction => {
   }
   if (interaction.commandName === 'game') {
     await interaction.reply('https://apps.apple.com/us/app/dagame/id1562587737')
+  }
+  if (interaction.commandName === 'image') {
+    await interaction.reply('command coming soon...')
   }
   if (interaction.commandName === 'car') {
     const car = new EmbedBuilder()
