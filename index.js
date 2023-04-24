@@ -17,6 +17,10 @@ const fsLibrary  = require('fs');
 
 
 process.on("unhandledRejection", error => console.error("Promise rejection:", error));
+client.on("guildCreate", async (guild) =>{
+  console.log('bot was added to a new server')
+  console.log(client.guilds.cache.size)
+});  
 
 client.once('ready', () => {
   //logs bot's id
@@ -76,22 +80,13 @@ client.on('interactionCreate', async interaction => {
   }
   if (interaction.commandName === 'invite') {
     var size = client.guilds.cache.size
-    if(size === 100) {
-      const link = new EmbedBuilder()
-      link.setColor('FF0000')
-      link.setTitle('Bot is currently in 100 servers')
-      link.addFields({name: 'Until I verify my bot please wait to add my bot and join the support server to get notifyed (bot works in dms)',value:'[Support server: https://discord.gg/AYj39T6N](https://discord.gg/AYj39T6N)', inline: true })
-      link.setTimestamp()
-      await interaction.reply({ embeds: [ link ] });
-    }else{
-      console.log(client.guilds.cache.size)
-      console.log(size)
-      const link = new EmbedBuilder()
-      link.setColor('00FF00')
-      link.addFields({name: 'Click the link below to add me to your own server:',value:'[https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot](https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot)', inline: true })
-      link.setTimestamp()
-      await interaction.reply({ embeds: [ link ] });
-    }
+    console.log(client.guilds.cache.size)
+    console.log(size)
+    const link = new EmbedBuilder()
+    link.setColor('00FF00')
+    link.addFields({name: 'Click the link below to add me to your own server:',value:'[https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot](https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot)', inline: true })
+    link.setTimestamp()
+    await interaction.reply({ embeds: [ link ] });
   }
   if (interaction.commandName === 'game') {
     await interaction.reply('https://apps.apple.com/us/app/dagame/id1562587737')
@@ -111,7 +106,6 @@ client.on('interactionCreate', async interaction => {
   }
 	if (interaction.commandName === 'meme'|| interaction.customId ==='nextmeme') {
     var randomnum = Math.round(Math.random() * 4)
-    console.log(randomnum)
     if (randomnum === 2 || randomnum === 1){
       var memes = ["mail001.jpg", "starbuck001.jpg", "italian001.jpg", "pea001.jpg", "car001.jpg", "car002.jpg", "spotify001.jpg", "daplane001.jpg", "3dcar001.jpg", "attackontitan001.jpg", "glass001.png", "fnf001.png", "cool001.jpg", "finalboss001.jpg", "exam001.jpg", "spongebob001.jpg", "mario001.jpg", "card001.jpg", "realdababy001.jpg", "dababyinmc001.jpg", "white001.jpg", "DAVINCI001.jpg", "school001.jpg"];
       var meme = Math.floor(Math.random() * memes.length);
@@ -238,15 +232,5 @@ client.on('interactionCreate', async interaction => {
 
 });
 
-client.on('messageCreate', async (message) => {
-  
-  if (message.content.toLowerCase().startsWith("dababy")) {
-    const update = new EmbedBuilder()
-    update.setTitle('DaBaby Bot has been updated to use slash commands and slash commands only')
-    update.addFields({name: 'If you don\'t see slash commands for this bot or they are not working click this link to regive permissions and permission to add slash commands',value:'[https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot](https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot)', inline: true })
-    update.setColor('FF0000')
-    update.setTimestamp()
-    message.reply({embeds: [update]})
-  };
-});
+
 client.login(process.env.TOKEN)
