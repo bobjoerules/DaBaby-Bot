@@ -18,8 +18,12 @@ const fsLibrary  = require('fs');
 
 process.on("unhandledRejection", error => console.error("Promise rejection:", error));
 client.on("guildCreate", async (guild) =>{
-  console.log('bot was added to a new server')
-  console.log(client.guilds.cache.size)
+  console.log('bot was added to a new server. (total servers is now: ' + client.guilds.cache.size)
+  const serverlog = new EmbedBuilder();
+  serverlog.setTitle('bot was added to a new server. (total servers is now: ' + client.guilds.cache.size)
+  serverlog.setColor('#ffff00')
+  serverlog.setTimestamp()
+  client.channels.cache.get('838264759899652137').send({embeds:[serverlog]})
 });  
 
 client.once('ready', () => {
@@ -39,7 +43,7 @@ client.once('ready', () => {
   //sets activity
   //logs that the bot restarted/started in the support server
   const restartlog = new EmbedBuilder();
-    restartlog.setTitle('DaBaby bot 2.0 has been restarted')
+    restartlog.setTitle('DaBaby has been restarted')
     restartlog.setColor('#ffff00')
     restartlog.setTimestamp()
  client.channels.cache.get('838264759899652137').send({embeds:[restartlog]})
