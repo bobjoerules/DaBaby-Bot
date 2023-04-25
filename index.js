@@ -99,7 +99,7 @@ client.on('interactionCreate', async interaction => {
   if (interaction.commandName === 'car') {
     const car = new EmbedBuilder()
     car.setColor("#" + randomColor)
-    car.setImage('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.redd.it%2F63fiic43g0o51.jpg&f=1&nofb=1')
+    car.setImage('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/eccecf5b-58df-4fb5-b1ca-a55568933bb6/deg8fye-faabd46d-5052-4425-8687-59d79b5d9a5c.png/v1/fill/w_1024,h_582/dababy_car_by_xxheavy_swagxx_deg8fye-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTgyIiwicGF0aCI6IlwvZlwvZWNjZWNmNWItNThkZi00ZmI1LWIxY2EtYTU1NTY4OTMzYmI2XC9kZWc4ZnllLWZhYWJkNDZkLTUwNTItNDQyNS04Njg3LTU5ZDc5YjVkOWE1Yy5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.1nWxKVKtsRsUr5I2zsanyDyMpndfFOXQG_syeh73P-U')
     car.setTitle('Lessgo')
     await interaction.reply({ embeds: [ car ] });
   }
