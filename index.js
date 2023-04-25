@@ -4,7 +4,7 @@ console.log("NodeJS Version: " + process.version)
 const express = require('express');
 require('dotenv').config()
 
-const { Client, GatewayIntentBits, AttachmentBuilder, Message, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ActivityType } = require('discord.js');
+const { Client, GatewayIntentBits, AttachmentBuilder, Message, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ActivityType, setPosition } = require('discord.js');
 
 const client = new Client({
   intents: [
@@ -94,7 +94,10 @@ client.on('interactionCreate', async interaction => {
     await interaction.reply('https://apps.apple.com/us/app/dagame/id1562587737')
   }
   if (interaction.commandName === 'image') {
+    var images = []
+    var image = Math.floor(Math.random() * images.length);
     await interaction.reply('command coming soon...')
+
   }
   if (interaction.commandName === 'car') {
     const car = new EmbedBuilder()
