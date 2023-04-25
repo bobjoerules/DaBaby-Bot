@@ -21,7 +21,7 @@ client.on("guildCreate", async (guild) =>{
   console.log('bot was added to a new server. (total servers is now: ' + client.guilds.cache.size)
   const serverlog = new EmbedBuilder();
   serverlog.setTitle('bot was added to a new server. (total servers is now: ' + client.guilds.cache.size)
-  serverlog.setColor('#ffff00')
+  serverlog.setColor('#ffffff')
   serverlog.setTimestamp()
   client.channels.cache.get('838264759899652137').send({embeds:[serverlog]})
 });  
@@ -42,7 +42,7 @@ client.once('ready', () => {
   //logs that the bot restarted/started in the support server
   const restartlog = new EmbedBuilder();
     restartlog.setTitle('DaBaby has been restarted')
-    restartlog.setColor('#ffff00')
+    restartlog.setColor('#00ff00')
     restartlog.setTimestamp()
  client.channels.cache.get('838264759899652137').send({embeds:[restartlog]})
 
@@ -85,8 +85,8 @@ client.on('interactionCreate', async interaction => {
     console.log(client.guilds.cache.size)
     console.log(size)
     const link = new EmbedBuilder()
-    link.setColor('00FF00')
-    link.addFields({name: 'In my profile, click \'Add me\' button to add me to your server', inline: true })
+    link.setColor('ffffff')
+    link.addFields({name: 'In my profile, click \'Add me\' button to add me to your server',value:'[Or click this link \(may not work\)](https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot)', inline: true })
     link.setTimestamp()
     await interaction.reply({ embeds: [ link ] });
   }
