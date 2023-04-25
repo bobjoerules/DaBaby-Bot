@@ -31,13 +31,11 @@ client.once('ready', () => {
   console.log(client.user.id)
   //logs bot's username
   console.log(`Logged in as ${client.user.tag}!`);
-  //logs that client is ready
-  console.log('Ready!');
   //logs how many servers the bot is in
   console.log('In ' + client.guilds.cache.size + ' servers')
   //sets th icon of if the bot is dnd, Idle, Online
   client.user.setPresence({
-    activities: [{ name: `discord.js v14`, type: ActivityType.Competing }],
+    activities: [{ name: `memes`, type: ActivityType.Competing }],
     status: 'online',
   });
   //sets activity
