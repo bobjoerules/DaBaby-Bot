@@ -86,7 +86,7 @@ client.on('interactionCreate', async interaction => {
     console.log(size)
     const link = new EmbedBuilder()
     link.setColor('00FF00')
-    link.addFields({name: 'Click the link below to add me to your own server:',value:'[https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot](https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot)', inline: true })
+    link.addFields({name: 'In my profile, click \'Add me\' button to add me to your server', inline: true })
     link.setTimestamp()
     await interaction.reply({ embeds: [ link ] });
   }
