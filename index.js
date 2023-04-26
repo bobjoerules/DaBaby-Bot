@@ -101,7 +101,7 @@ client.on('interactionCreate', async interaction => {
   }
   if (interaction.commandName === 'car') {
     const car = new EmbedBuilder()
-    car.setColor("#" + randomColor)
+    car.setColor('#A020F0')
     car.setImage('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/eccecf5b-58df-4fb5-b1ca-a55568933bb6/deg8fye-faabd46d-5052-4425-8687-59d79b5d9a5c.png/v1/fill/w_1024,h_582/dababy_car_by_xxheavy_swagxx_deg8fye-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTgyIiwicGF0aCI6IlwvZlwvZWNjZWNmNWItNThkZi00ZmI1LWIxY2EtYTU1NTY4OTMzYmI2XC9kZWc4ZnllLWZhYWJkNDZkLTUwNTItNDQyNS04Njg3LTU5ZDc5YjVkOWE1Yy5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.1nWxKVKtsRsUr5I2zsanyDyMpndfFOXQG_syeh73P-U')
     car.setTitle('Lessgo')
     await interaction.reply({ embeds: [ car ] });
@@ -116,7 +116,7 @@ client.on('interactionCreate', async interaction => {
       var meme = Math.floor(Math.random() * memes.length);
       var colors = ["#0099ff", "", ""];
       const embedmeme = new EmbedBuilder();
-      embedmeme.setColor("#" + randomColor)
+      embedmeme.setColor('#A020F0')
       embedmeme.setTitle(memes[meme].slice(0, -7))
       embedmeme.setImage('attachment://' + memes[meme])
       const row = new ActionRowBuilder()
@@ -204,12 +204,13 @@ client.on('interactionCreate', async interaction => {
 	} 
 
   if (interaction.commandName === 'fact' || interaction.customId ==='nextfact')  {
+    console.log('#A020F0')
     var facts = [ "DaBaby's youtube channel has 9.87M subscribers", "DaBaby's youtube channel has 221 videos (including videos not made by DaBaby)",  "DaBaby is an American rapper", "Jonathan Lyndale Kirk, known professionally as DaBaby, is an American rapper. After releasing several mixtapes between 2014 and 2018, he rose to mainstream prominence in 2019.", "DaBaby was born: December 22, 1991 (age 30 years), Cleveland, OH", "DaBaby's full name is: Jonathan Lyndale Kirk", "DaBaby when he started rapping was called: Baby Jesus", "DaBaby is a rapper", "DaBaby has a sibling: Glen Johnson","DaBaby reportedly has three(or four) kids. The rapper shares his children with different women.","DaBaby stands at five feet eight inches tall.", "DaBaby been rapping since 2014","He was involved in a shooting at Walmart in 2018","DaBaby's Net Worth: $5 Million","Kirk has three children, the first born in 2017","Kirk's father died in 2019 shortly after the release of his debut studio album. His second album is a tribute to his last name and contains a picture of his father on the cover.", "Kirk's brother, Glen Johnson, died in November 2020, at age 34, from a self-inflicted gunshot wound.","In August 2020, Kirk formally endorsed the presidential campaign of independent candidate and fellow rapper Kanye West.","He dated American singer DaniLeigh in 2020. They split in February 2021 after her song lyrics \"yellow bone that's what he wants\" stirred controversy. Months after the split, it was reportedly confirmed that Kirk had fathered a child with the singer after an incident of the two was recorded and posted on Instagram.","If you were to combine all of DaBaby's youtube videos' views, it would add up to about 4,495,218,740 views", 'Dababy faced backlash after rapping about Jojo Siwa, he later commented that his daughter is a fan of Jojo and he had  nothing against her.', 'DaBaby and his ex-girlfriend MeMe met five years ago through mutual friends, and despite not being together anymore they remain friends.', 'DaBaby\'s breakthrough hit \'Suge\' dropped in April 2019 and received two nominations at the 62nd Annual Grammy Awards for \'Best Rap Performance\' and \'Best Rap Song.\'','Dababy moved to Charlotte, North Carolina in 1999, where he spent most of his early years.', 'Dababy attended Vance High School (now called Julius L. Chambers High School), where he graduated in 2010.', 'DaBaby grew up listening to Eminem, 50 Cent and Lil Wayne with his two older brothers.'];
     var fact = Math.floor(Math.random() * facts.length);
     const factembed = new EmbedBuilder();
     factembed.setTitle('DaBaby Fact')
     factembed.setDescription(facts[fact])
-    factembed.setColor("#" + randomColor)
+    factembed.setColor('#A020F0')
     factembed.setTimestamp()
     const row = new ActionRowBuilder()
     .addComponents(
