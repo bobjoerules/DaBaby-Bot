@@ -255,7 +255,7 @@ client.on('interactionCreate', async interaction => {
     await interaction.reply( {content: 'Pong', fetchReply: true }).then (async (resultinteraction) =>{
     pong.addFields(
       { name: 'Uptime:', value: `${days}d ${hours}h ${minutes}m ${seconds}s`, inline: true },
-      { name: 'Latency:', value: `${resultinteraction.createdTimestamp - interaction.createdTimestamp}ms.`, inline: true },
+      { name: 'Latency:', value: `${resultinteraction.createdTimestamp - interaction.createdTimestamp}ms`, inline: true },
       { name: 'API Latency:', value: `${Math.round(client.ws.ping)}ms`, inline: true }
     )
     pong.addFields(
@@ -264,7 +264,7 @@ client.on('interactionCreate', async interaction => {
       { name: 'Discord.js Version:', value: `${require("discord.js").version}`, inline: true }
     )
     pong.addFields(
-      {name: 'Bot version: ', value: '⚙️3.0', inline: true}
+      {name: 'Bot version: ', value: '⚙️3.1', inline: true}
     )
     pong.setThumbnail('https://www.pngkit.com/png/full/284-2843649_ping-pong-paddle-png-ping-pong-racket-png.png')
     await interaction.editReply({ embeds: [pong] , ephemeral: false });
