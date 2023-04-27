@@ -43,7 +43,11 @@ client.once('ready', () => {
   const restartlog = new EmbedBuilder();
     restartlog.setTitle('DaBaby has been restarted')
     restartlog.setColor('#00ff00')
-    restartlog.setDescription('In ' + client.guilds.cache.size + ' servers')
+    restartlog.addFields(
+      { name: 'Servers:', value: `${client.guilds.cache.size}`, inline: true },
+      { name: 'NodeJS Version:', value: `${process.version}`, inline: true },
+      { name: 'Discord.js Version:', value: `${require("discord.js").version}`, inline: true }
+    )
     restartlog.setTimestamp()
  client.channels.cache.get('838264759899652137').send({embeds:[restartlog]})
 
@@ -223,6 +227,22 @@ client.on('interactionCreate', async interaction => {
     )
     await interaction.reply({embeds: [factembed] , ephemeral: false , components: [row]});
   }
+  if (interaction.commandName === 'oldping') {
+    const pong = new EmbedBuilder();
+    let days = Math.floor(client.uptime / 86400000);
+    let hours = Math.floor(client.uptime / 3600000) % 24;
+    let minutes = Math.floor(client.uptime / 60000) % 60;
+    let seconds = Math.floor(client.uptime / 1000) % 60;
+    pong.setColor('ffff00')
+    pong.setTimestamp()
+    await interaction.reply( {content: 'Pong', fetchReply: true }).then (async (resultinteraction) =>{
+    pong.setDescription(`**Uptime: ${days}d ${hours}h ${minutes}m ${seconds}s**\nLatency is ${resultinteraction.createdTimestamp - interaction.createdTimestamp}ms. \nAPI Latency is ${Math.round(client.ws.ping)}ms\n\nIn ` + client.guilds.cache.size + ' servers\nNodeJS Version: ' + process.version + '\nDiscord.js Version: ' + require("discord.js").version)
+    pong.setThumbnail('https://www.pngkit.com/png/full/284-2843649_ping-pong-paddle-png-ping-pong-racket-png.png')
+    await interaction.editReply({ embeds: [pong] , ephemeral: false });
+    
+    })
+  }
+
   if (interaction.commandName === 'ping') {
     const pong = new EmbedBuilder();
     let days = Math.floor(client.uptime / 86400000);
@@ -232,10 +252,31 @@ client.on('interactionCreate', async interaction => {
     pong.setColor('ffff00')
     pong.setTimestamp()
     await interaction.reply( {content: 'Pong', fetchReply: true }).then (async (resultinteraction) =>{
-    pong.setDescription(`Uptime: ${days}d ${hours}h ${minutes}m ${seconds}s\nLatency is ${resultinteraction.createdTimestamp - interaction.createdTimestamp}ms. \nAPI Latency is ${Math.round(client.ws.ping)}ms\nIn` + client.guilds.cache.size + ' servers\nNodeJS Version: ' + process.version)
+    pong.addFields(
+      { name: 'Uptime:', value: `${days}d ${hours}h ${minutes}m ${seconds}s`, inline: true },
+      { name: 'Latency:', value: `${resultinteraction.createdTimestamp - interaction.createdTimestamp}ms.`, inline: true },
+      { name: 'API Latency:', value: `${Math.round(client.ws.ping)}ms`, inline: true }
+    )
+    pong.addFields(
+      { name: 'Servers:', value: `${client.guilds.cache.size}`, inline: true },
+      { name: 'NodeJS Version:', value: `${process.version}`, inline: true },
+      { name: 'Discord.js Version:', value: `${require("discord.js").version}`, inline: true }
+    )
+    pong.setThumbnail('https://www.pngkit.com/png/full/284-2843649_ping-pong-paddle-png-ping-pong-racket-png.png')
     await interaction.editReply({ embeds: [pong] , ephemeral: false });
     
     })
+  }
+  if (interaction.commandName === 'changelog') {
+    const changes = new EmbedBuilder();
+    changes.setColor('0000FF')
+    changes.addFields(
+      { name: '⚙️ Version:', value: `3.0`, inline: false },
+      { name: 'Change one:', value: `Changed layout of /ping command`, inline: false },
+      { name: 'Change two:', value: `Added the /changelog command`, inline: false }
+    )
+
+
   }
 
 });

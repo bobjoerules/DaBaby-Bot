@@ -10,8 +10,8 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
 client.once('ready', () => {
     var guildCommand = new SlashCommandBuilder();
-    guildCommand.setName('images')
-    guildCommand.setDescription('Sends a random image of DaBaby')
+    guildCommand.setName('changelog')
+    guildCommand.setDescription('Sends the changelog of this bot')
     console.log("New slash command has been made")
 });
 client.login(process.env.TOKEN)
