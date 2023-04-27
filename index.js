@@ -51,7 +51,6 @@ client.once('ready', () => {
  let serversin = guild.channels.cache.get('849051882314924053')
  let usesabout = guild.channels.cache.get('849860265989242890')
   serversin.setName('Servers: ' + client.guilds.cache.size)
-  usesabout.setName('Uses ↔: ' + fsLibrary.readFileSync('times_used.int','utf8'))
   
 });
 
@@ -126,6 +125,7 @@ client.on('interactionCreate', async interaction => {
           .setLabel('Next Meme')
           .setStyle('Success'),
       )
+      console.log('./images/' + memes[meme])
       await interaction.reply({ embeds: [ embedmeme ], files: ['./images/' + memes[meme]], components: [row]});
     
     } else {
@@ -139,9 +139,10 @@ client.on('interactionCreate', async interaction => {
             .setLabel('Next Meme')
             .setStyle('Success'),
         )
+        console.log("./vids/" + memes[meme])
         await interaction.reply({ content: 'Lessgo!',  files: ["./vids/" + memes[meme]], components: [row]});
       }else{
-        var memevids = ["https://www.youtube.com/watch?v=XV3f7r1ZGVU", "https://www.youtube.com/watch?v=bT7FGwTw-rY", "https://www.youtube.com/watch?v=BMPWVEXGRxA", "https://www.youtube.com/watch?v=DZpY6nr8c8g", "https://www.youtube.com/watch?v=VFn1pvYht2Y", "https://www.youtube.com/watch?v=63amyCOleOk", "https://www.youtube.com/watch?v=iSGdVuo2swg", "https://www.youtube.com/watch?v=FH_TXS56rQA", "https://www.youtube.com/watch?v=FsVxzR1Qtrs", "https://www.youtube.com/watch?v=3uuLWG-Gqtk", "https://www.youtube.com/watch?v=9at6I6ZEJXQ", "https://www.youtube.com/watch?v=GBLEXvphIgk", "https://www.youtube.com/watch?v=e2oNweTWO2Q", "https://www.youtube.com/watch?v=cC2c7EUWdr0", "https://www.youtube.com/watch?v=DcRLTClL5YU", "https://www.youtube.com/watch?v=upflDVv3k50", "https://www.youtube.com/watch?v=i-nIe8QaKfE", "https://www.youtube.com/watch?v=WWJ_35tM4wk", "https://www.youtube.com/watch?v=bYX57kWcwgQ", "https://www.youtube.com/watch?v=tuHTFatvytk", "https://youtu.be/GDVKta8zP1k", "https://youtu.be/sb_9AEV6qT4", "https://youtu.be/SczRjdY9X1o", "https://youtu.be/FsVxzR1Qtrs", "https://youtu.be/tNG9sHUxN-U", "https://youtu.be/b7tEganBpn8", "https://youtu.be/i-nIe8QaKfE", "https://youtu.be/P6MQUeVbj-o", "https://youtu.be/b0vM3FqkS_Y", "https://youtu.be/c4dsGJnVQpY", "https://youtu.be/7KTSNCCZXVc", "https://youtu.be/tuHTFatvytk", "https://youtu.be/Ep8PVrYV0dQ", "https://youtu.be/h9SdCKjC7gU", "https://youtu.be/_QRCczOSdFQ", "https://youtu.be/dLYS9XcnuIg", "https://youtu.be/ioqRj9JlpIM", "https://youtu.be/cC2c7EUWdr0", "https://youtu.be/oLHjwbLqtpw", "https://youtu.be/sBSoR2Zpg4g", "https://youtu.be/61k1JZ1RvCw","https://youtu.be/mIe2k6ql7zI", "https://youtu.be/P9oTql1aRx8","https://youtu.be/xtbJyhVQdIw","https://youtu.be/MHgsbwYEbGo","https://youtu.be/P6MQUeVbj-o","Here is some good content for ten hours: https://youtu.be/v4y9YeWeT3M","https://youtu.be/jhE76TXosGc","https://youtu.be/Nw4kDgR_D2s","https://youtu.be/EVtJWMWr_SY","https://youtu.be/63amyCOleOk",""]
+        var memevids = ["https://www.youtube.com/watch?v=XV3f7r1ZGVU", "https://www.youtube.com/watch?v=bT7FGwTw-rY", "https://www.youtube.com/watch?v=BMPWVEXGRxA", "https://www.youtube.com/watch?v=DZpY6nr8c8g", "https://www.youtube.com/watch?v=VFn1pvYht2Y", "https://www.youtube.com/watch?v=63amyCOleOk", "https://www.youtube.com/watch?v=iSGdVuo2swg", "https://www.youtube.com/watch?v=FH_TXS56rQA", "https://www.youtube.com/watch?v=FsVxzR1Qtrs", "https://www.youtube.com/watch?v=3uuLWG-Gqtk", "https://www.youtube.com/watch?v=9at6I6ZEJXQ", "https://www.youtube.com/watch?v=GBLEXvphIgk", "https://www.youtube.com/watch?v=e2oNweTWO2Q", "https://www.youtube.com/watch?v=cC2c7EUWdr0", "https://www.youtube.com/watch?v=DcRLTClL5YU", "https://www.youtube.com/watch?v=upflDVv3k50", "https://www.youtube.com/watch?v=i-nIe8QaKfE", "https://www.youtube.com/watch?v=WWJ_35tM4wk", "https://www.youtube.com/watch?v=bYX57kWcwgQ", "https://www.youtube.com/watch?v=tuHTFatvytk", "https://youtu.be/sb_9AEV6qT4", "https://youtu.be/SczRjdY9X1o", "https://youtu.be/FsVxzR1Qtrs", "https://youtu.be/tNG9sHUxN-U", "https://youtu.be/b7tEganBpn8", "https://youtu.be/i-nIe8QaKfE", "https://youtu.be/P6MQUeVbj-o", "https://youtu.be/b0vM3FqkS_Y", "https://youtu.be/c4dsGJnVQpY", "https://youtu.be/7KTSNCCZXVc", "https://youtu.be/tuHTFatvytk", "https://youtu.be/Ep8PVrYV0dQ", "https://youtu.be/h9SdCKjC7gU", "https://youtu.be/_QRCczOSdFQ", "https://youtu.be/dLYS9XcnuIg", "https://youtu.be/ioqRj9JlpIM", "https://youtu.be/cC2c7EUWdr0", "https://youtu.be/oLHjwbLqtpw", "https://youtu.be/sBSoR2Zpg4g", "https://youtu.be/61k1JZ1RvCw","https://youtu.be/mIe2k6ql7zI", "https://youtu.be/P9oTql1aRx8","https://youtu.be/xtbJyhVQdIw","https://youtu.be/MHgsbwYEbGo","https://youtu.be/P6MQUeVbj-o","Here is some good content for ten hours: https://youtu.be/v4y9YeWeT3M","https://youtu.be/jhE76TXosGc","https://youtu.be/Nw4kDgR_D2s","https://youtu.be/EVtJWMWr_SY","https://youtu.be/63amyCOleOk",""]
         var memevid = Math.floor(Math.random() * memevids.length);
         const row = new ActionRowBuilder()
         .addComponents(
