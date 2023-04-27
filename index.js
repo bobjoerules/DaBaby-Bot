@@ -279,7 +279,7 @@ client.on('interactionCreate', async interaction => {
       { name: 'Change one:', value: `Changed layout of /ping command`, inline: false },
       { name: 'Change two:', value: `Added the /changelog command`, inline: false }
     )
-    await interaction.reply({embeds: [changes] , ephemeral: false);
+    await interaction.reply({embeds: [changes] , ephemeral: false});
 
   }
 
