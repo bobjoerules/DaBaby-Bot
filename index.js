@@ -45,6 +45,7 @@ client.once('ready', () => {
     restartlog.setColor('#00ff00')
     restartlog.addFields(
       { name: 'Servers:', value: `${client.guilds.cache.size}`, inline: true },
+      {name: 'Bot version:', value: `⚙️3.1`, inline: true},
       { name: 'NodeJS Version:', value: `${process.version}`, inline: true },
       { name: 'Discord.js Version:', value: `${require("discord.js").version}`, inline: true }
     )
@@ -262,6 +263,9 @@ client.on('interactionCreate', async interaction => {
       { name: 'NodeJS Version:', value: `${process.version}`, inline: true },
       { name: 'Discord.js Version:', value: `${require("discord.js").version}`, inline: true }
     )
+    pong.addFields(
+      {name: 'Bot version: ', value: '⚙️3.0', inline: true}
+    )
     pong.setThumbnail('https://www.pngkit.com/png/full/284-2843649_ping-pong-paddle-png-ping-pong-racket-png.png')
     await interaction.editReply({ embeds: [pong] , ephemeral: false });
     
@@ -271,7 +275,7 @@ client.on('interactionCreate', async interaction => {
     const changes = new EmbedBuilder();
     changes.setColor('0000FF')
     changes.addFields(
-      { name: '⚙️ Version:', value: `3.0`, inline: false },
+      { name: '⚙️ Version:', value: `3.1`, inline: false },
       { name: 'Change one:', value: `Changed layout of /ping command`, inline: false },
       { name: 'Change two:', value: `Added the /changelog command`, inline: false }
     )
