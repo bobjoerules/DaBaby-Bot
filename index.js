@@ -43,6 +43,7 @@ client.once('ready', () => {
   const restartlog = new EmbedBuilder();
     restartlog.setTitle('DaBaby has been restarted')
     restartlog.setColor('#00ff00')
+    restartlog.setDescription('In ' + client.guilds.cache.size + ' servers')
     restartlog.setTimestamp()
  client.channels.cache.get('838264759899652137').send({embeds:[restartlog]})
 
@@ -231,7 +232,7 @@ client.on('interactionCreate', async interaction => {
     pong.setColor('ffff00')
     pong.setTimestamp()
     await interaction.reply( {content: 'Pong', fetchReply: true }).then (async (resultinteraction) =>{
-    pong.setDescription(`Uptime: ${days}d ${hours}h ${minutes}m ${seconds}s\nLatency is ${resultinteraction.createdTimestamp - interaction.createdTimestamp}ms. \nAPI Latency is ${Math.round(client.ws.ping)}ms`)
+    pong.setDescription(`Uptime: ${days}d ${hours}h ${minutes}m ${seconds}s\nLatency is ${resultinteraction.createdTimestamp - interaction.createdTimestamp}ms. \nAPI Latency is ${Math.round(client.ws.ping)}ms\nIn` + client.guilds.cache.size + ' servers\nNodeJS Version: ' + process.version)
     await interaction.editReply({ embeds: [pong] , ephemeral: false });
     
     })
