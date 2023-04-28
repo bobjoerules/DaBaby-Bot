@@ -45,7 +45,7 @@ client.once('ready', () => {
     restartlog.setColor('#00ff00')
     restartlog.addFields(
       { name: 'Servers:', value: `${client.guilds.cache.size}`, inline: true },
-      {name: 'Bot version:', value: `⚙️3.1`, inline: true},
+      {name: 'Bot version:', value: `⚙️3.2`, inline: true},
       { name: 'NodeJS Version:', value: `${process.version}`, inline: true },
       { name: 'Discord.js Version:', value: `${require("discord.js").version}`, inline: true }
     )
@@ -90,13 +90,29 @@ client.on('interactionCreate', async interaction => {
     console.log(client.guilds.cache.size)
     console.log(size)
     const link = new EmbedBuilder()
-    link.setColor('ffffff')
-    link.addFields({name: 'In my profile, click \'Add me\' button to add me to your server',value:'[Or click this link \(may not work\)](https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=532646526784&scope=applications.commands%20bot)', inline: true })
-    link.setTimestamp()
-    await interaction.reply({ embeds: [ link ] });
+    link.setColor('a8b3de')
+    link.setTitle('Invite')
+    link.setDescription('In my profile, click \'Add me\' button to add me to your server or use the link below')
+    const row = new ActionRowBuilder()
+    .addComponents(
+      new ButtonBuilder()
+      .setURL('https://discord.com/api/oauth2/authorize?client_id=836069453389234206&permissions=137439267904&scope=bot%20applications.commands')
+      .setLabel('Invite')
+      .setStyle('Link')
+    )
+		await interaction.reply({ embeds: [link] , ephemeral: false , components: [row]});
   }
   if (interaction.commandName === 'game') {
-    await interaction.reply('https://apps.apple.com/us/app/dagame/id1562587737')
+    const game = new EmbedBuilder()
+    game.setColor('964B00')
+    game.setDescription('Get the Dababy game made by Kramer Media GmbH on the apple store')
+    const row = new ActionRowBuilder()
+    .addComponents(
+      new ButtonBuilder()
+      .setURL('https://apps.apple.com/us/app/dagame/id1562587737')
+      .setLabel('Apple store link')
+      .setStyle('Link')
+    )
   }
   if (interaction.commandName === 'image') {
     var images = []
@@ -264,7 +280,7 @@ client.on('interactionCreate', async interaction => {
       { name: 'Discord.js Version:', value: `${require("discord.js").version}`, inline: true }
     )
     pong.addFields(
-      {name: 'Bot version: ', value: '⚙️3.1', inline: true}
+      {name: 'Bot version: ', value: '⚙️3.2', inline: true}
     )
     pong.setThumbnail('https://www.pngkit.com/png/full/284-2843649_ping-pong-paddle-png-ping-pong-racket-png.png')
     await interaction.editReply({ embeds: [pong] , ephemeral: false });
@@ -274,6 +290,13 @@ client.on('interactionCreate', async interaction => {
   if (interaction.commandName === 'changelog') {
     const changes = new EmbedBuilder();
     changes.setColor('0000FF')
+    changes.addFields(
+      { name: '⚙️ Version:', value: `3.2`, inline: false },
+      { name: 'Change one:', value: `I forgot to add /game command`, inline: false },
+      { name: 'Change two:', value: `remade /game command`, inline: false },
+      { name: 'Change three:', value: `remade /invite command`, inline: false },
+      { name: '\u200b', value: '\u200b' }
+    )
     changes.addFields(
       { name: '⚙️ Version:', value: `3.1`, inline: false },
       { name: 'Change one:', value: `Changed layout of /ping command`, inline: false },
