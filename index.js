@@ -105,7 +105,9 @@ client.on('interactionCreate', async interaction => {
   if (interaction.commandName === 'game') {
     const game = new EmbedBuilder()
     game.setColor('964B00')
+    game.setTitle('DaGame')
     game.setDescription('Get the Dababy game made by Kramer Media GmbH on the apple store')
+    game.setImage('https://is4-ssl.mzstatic.com/image/thumb/Purple125/v4/dc/c1/07/dcc10765-cce5-f5c8-b669-b4bd62417fde/AppIcon-1x_U007emarketing-0-7-0-0-85-220.png/1200x630wa.png')
     const row = new ActionRowBuilder()
     .addComponents(
       new ButtonBuilder()
@@ -113,6 +115,7 @@ client.on('interactionCreate', async interaction => {
       .setLabel('Apple store link')
       .setStyle('Link')
     )
+    await interaction.reply({embeds: [game] , ephemeral: false , components: [row]});
   }
   if (interaction.commandName === 'image') {
     var images = []
@@ -184,7 +187,6 @@ client.on('interactionCreate', async interaction => {
     help.setDescription('• /fact = Sends a fact about DaBaby\n • /help = Lists the commands the bot has\n• /meme = Meme related to DaBaby (either a video from YouTube or a photo)\n• /ping = Sends the bot\'s Uptime, Latency, and API Latency\n• /websites = Links to websites related to bot and DaBaby\n• /car = DaBaby is now a car\n• /invite = Invite this bot to your server\n• /suggest = Have a suggestion? Bot will send a link to a google form to fill out')
 		help.addFields({name: 'Join the support server:', value:'[https://discord.gg/AYj39T6N](https://discord.gg/AYj39T6N)', inline: true })
     help.setFooter({text: 'Bot made by Bobjoerules'})
-    help.setTimestamp()
     await interaction.reply({ embeds: [help] , ephemeral: true });
 	}   
   if (interaction.commandName === 'websites') {
@@ -196,8 +198,6 @@ client.on('interactionCreate', async interaction => {
     topdababy.addFields({name: "Top.gg page for bot:", value:"[https://top.gg/bot/836069453389234206](https://top.gg/bot/836069453389234206)", inline: true })
     topdababy.setColor('FF3366')
     const developer = new EmbedBuilder();
-    developer.addFields({name: "Develepors website:",value: "[https://bobjoerules.github.io/DarkMode-sheet/](https://bobjoerules.github.io/DarkMode-sheet/)", inline: true })
-    developer.setTimestamp()
 		await interaction.reply({ embeds: [websites, topdababy, developer] , ephemeral: false });
 	}   
 
@@ -222,7 +222,6 @@ client.on('interactionCreate', async interaction => {
       .setLabel('https://forms.gle/LpZubqihvNfseDhbA')
       .setStyle('Link')
     )
-    suggestion.setTimestamp()
 		await interaction.reply({ embeds: [suggestion] , ephemeral: false , components: [row]});
 	} 
 
@@ -234,7 +233,6 @@ client.on('interactionCreate', async interaction => {
     factembed.setTitle('DaBaby Fact')
     factembed.setDescription(facts[fact])
     factembed.setColor('#A020F0')
-    factembed.setTimestamp()
     const row = new ActionRowBuilder()
     .addComponents(
       new ButtonBuilder()
@@ -251,7 +249,6 @@ client.on('interactionCreate', async interaction => {
     let minutes = Math.floor(client.uptime / 60000) % 60;
     let seconds = Math.floor(client.uptime / 1000) % 60;
     pong.setColor('ffff00')
-    pong.setTimestamp()
     await interaction.reply( {content: 'Pong', fetchReply: true }).then (async (resultinteraction) =>{
     pong.setDescription(`**Uptime: ${days}d ${hours}h ${minutes}m ${seconds}s**\nLatency is ${resultinteraction.createdTimestamp - interaction.createdTimestamp}ms. \nAPI Latency is ${Math.round(client.ws.ping)}ms\n\nIn ` + client.guilds.cache.size + ' servers\nNodeJS Version: ' + process.version + '\nDiscord.js Version: ' + require("discord.js").version)
     pong.setThumbnail('https://www.pngkit.com/png/full/284-2843649_ping-pong-paddle-png-ping-pong-racket-png.png')
@@ -267,7 +264,6 @@ client.on('interactionCreate', async interaction => {
     let minutes = Math.floor(client.uptime / 60000) % 60;
     let seconds = Math.floor(client.uptime / 1000) % 60;
     pong.setColor('ffff00')
-    pong.setTimestamp()
     await interaction.reply( {content: 'Pong', fetchReply: true }).then (async (resultinteraction) =>{
     pong.addFields(
       { name: 'Uptime:', value: `${days}d ${hours}h ${minutes}m ${seconds}s`, inline: true },
