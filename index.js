@@ -285,6 +285,7 @@ client.on('interactionCreate', async interaction => {
   }
   if (interaction.commandName === 'changelog') {
     const changes = new EmbedBuilder();
+    changes.setTitle('Changelog')
     changes.setColor('0000FF')
     changes.addFields(
       { name: '⚙️ Version:', value: `3.2`, inline: false },
