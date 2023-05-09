@@ -45,7 +45,7 @@ client.once('ready', () => {
     restartlog.setColor('#00ff00')
     restartlog.addFields(
       { name: 'Servers:', value: `${client.guilds.cache.size}`, inline: true },
-      {name: 'Bot version:', value: `⚙️3.2`, inline: true},
+      {name: 'Bot version:', value: `⚙️3.3`, inline: true},
       { name: 'NodeJS Version:', value: `${process.version}`, inline: true },
       { name: 'Discord.js Version:', value: `${require("discord.js").version}`, inline: true }
     )
@@ -227,11 +227,11 @@ client.on('interactionCreate', async interaction => {
 
   if (interaction.commandName === 'fact' || interaction.customId ==='nextfact')  {
     console.log('#A020F0')
-    var facts = [ "DaBaby's youtube channel has 9.87M subscribers", "DaBaby's youtube channel has 221 videos (including videos not made by DaBaby)",  "DaBaby is an American rapper", "Jonathan Lyndale Kirk, known professionally as DaBaby, is an American rapper. After releasing several mixtapes between 2014 and 2018, he rose to mainstream prominence in 2019.", "DaBaby was born: December 22, 1991 (age 30 years), Cleveland, OH", "DaBaby's full name is: Jonathan Lyndale Kirk", "DaBaby when he started rapping was called: Baby Jesus", "DaBaby is a rapper", "DaBaby has a sibling: Glen Johnson","DaBaby reportedly has three(or four) kids. The rapper shares his children with different women.","DaBaby stands at five feet eight inches tall.", "DaBaby been rapping since 2014","He was involved in a shooting at Walmart in 2018","DaBaby's Net Worth: $5 Million","Kirk has three children, the first born in 2017","Kirk's father died in 2019 shortly after the release of his debut studio album. His second album is a tribute to his last name and contains a picture of his father on the cover.", "Kirk's brother, Glen Johnson, died in November 2020, at age 34, from a self-inflicted gunshot wound.","In August 2020, Kirk formally endorsed the presidential campaign of independent candidate and fellow rapper Kanye West.","He dated American singer DaniLeigh in 2020. They split in February 2021 after her song lyrics \"yellow bone that's what he wants\" stirred controversy. Months after the split, it was reportedly confirmed that Kirk had fathered a child with the singer after an incident of the two was recorded and posted on Instagram.","If you were to combine all of DaBaby's youtube videos' views, it would add up to about 4,495,218,740 views", 'Dababy faced backlash after rapping about Jojo Siwa, he later commented that his daughter is a fan of Jojo and he had  nothing against her.', 'DaBaby and his ex-girlfriend MeMe met five years ago through mutual friends, and despite not being together anymore they remain friends.', 'DaBaby\'s breakthrough hit \'Suge\' dropped in April 2019 and received two nominations at the 62nd Annual Grammy Awards for \'Best Rap Performance\' and \'Best Rap Song.\'','Dababy moved to Charlotte, North Carolina in 1999, where he spent most of his early years.', 'Dababy attended Vance High School (now called Julius L. Chambers High School), where he graduated in 2010.', 'DaBaby grew up listening to Eminem, 50 Cent and Lil Wayne with his two older brothers.'];
+    var facts = [ "DaBaby's youtube channel has 10M subscribers", "DaBaby's youtube channel has about 183 videos (including videos not made by DaBaby)",  "DaBaby is an American rapper", "Jonathan Lyndale Kirk, known professionally as DaBaby, is an American rapper. After releasing several mixtapes between 2014 and 2018, he rose to mainstream prominence in 2019.", "DaBaby was born: December 22, 1991 (age 31 years), Cleveland, OH", "DaBaby's full name is: Jonathan Lyndale Kirk", "DaBaby when he started rapping was called: Baby Jesus", "DaBaby is a rapper", "DaBaby has a sibling: Glen Johnson","DaBaby reportedly has three(or four) kids. The rapper shares his children with different women.","DaBaby stands at five feet eight inches tall.", "DaBaby been rapping since 2014","He was involved in a shooting at Walmart in 2018","DaBaby's Net Worth: $5 Million","Kirk has three children, the first born in 2017","Kirk's father died in 2019 shortly after the release of his debut studio album. His second album is a tribute to his last name and contains a picture of his father on the cover.", "Kirk's brother, Glen Johnson, died in November 2020, at age 34, from a self-inflicted gunshot wound.","In August 2020, Kirk formally endorsed the presidential campaign of independent candidate and fellow rapper Kanye West.","He dated American singer DaniLeigh in 2020. They split in February 2021 after her song lyrics \"yellow bone that's what he wants\" stirred controversy. Months after the split, it was reportedly confirmed that Kirk had fathered a child with the singer after an incident of the two was recorded and posted on Instagram.","If you were to combine all of DaBaby's youtube videos' views, it would add up to about 4,708,403,739 views", 'Dababy faced backlash after rapping about Jojo Siwa, he later commented that his daughter is a fan of Jojo and he had  nothing against her.', 'DaBaby and his ex-girlfriend MeMe met five years ago through mutual friends, and despite not being together anymore they remain friends.', 'DaBaby\'s breakthrough hit \'Suge\' dropped in April 2019 and received two nominations at the 62nd Annual Grammy Awards for \'Best Rap Performance\' and \'Best Rap Song.\'','Dababy moved to Charlotte, North Carolina in 1999, where he spent most of his early years.', 'Dababy attended Vance High School (now called Julius L. Chambers High School), where he graduated in 2010.', 'DaBaby grew up listening to Eminem, 50 Cent and Lil Wayne with his two older brothers.'];
     var fact = Math.floor(Math.random() * facts.length);
     const factembed = new EmbedBuilder();
     factembed.setTitle('DaBaby Fact')
-    factembed.setDescription(facts[fact])
+    factembed.setDescription(facts[fact] + '\n ||Updated: <t:1683644750:f>||')
     factembed.setColor('#A020F0')
     const row = new ActionRowBuilder()
     .addComponents(
@@ -276,7 +276,7 @@ client.on('interactionCreate', async interaction => {
       { name: 'Discord.js Version:', value: `${require("discord.js").version}`, inline: true }
     )
     pong.addFields(
-      {name: 'Bot version: ', value: '⚙️3.2', inline: true}
+      {name: 'Bot version: ', value: '⚙️3.3', inline: true}
     )
     pong.setThumbnail('https://www.pngkit.com/png/full/284-2843649_ping-pong-paddle-png-ping-pong-racket-png.png')
     await interaction.editReply({ embeds: [pong] , ephemeral: false });
@@ -288,16 +288,25 @@ client.on('interactionCreate', async interaction => {
     changes.setTitle('Changelog')
     changes.setColor('0000FF')
     changes.addFields(
+      { name: '⚙️ Version:', value: `3.3`, inline: false },
+      { name: 'Change one:', value: `Added update time to /fact command and updated the facts`, inline: false },
+      { name: 'Change two:', value: `Added update time for versions`, inline: false },
+      { name: '⏳ Time of update:', value: `<t:1683645277:f>`, inline: false },
+      { name: '\u200b', value: '\u200b' }
+      )
+    changes.addFields(
       { name: '⚙️ Version:', value: `3.2`, inline: false },
       { name: 'Change one:', value: `I forgot to add /game command`, inline: false },
       { name: 'Change two:', value: `remade /game command`, inline: false },
       { name: 'Change three:', value: `remade /invite command`, inline: false },
+      { name: '⏳ Time of update:', value: `<t:1682743500:f>`, inline: false },
       { name: '\u200b', value: '\u200b' }
     )
     changes.addFields(
       { name: '⚙️ Version:', value: `3.1`, inline: false },
       { name: 'Change one:', value: `Changed layout of /ping command`, inline: false },
-      { name: 'Change two:', value: `Added the /changelog command`, inline: false }
+      { name: 'Change two:', value: `Added the /changelog command`, inline: false },
+      { name: '⏳ Time of update:', value: `<t:1682623800:f>`, inline: false }
     )
     await interaction.reply({embeds: [changes] , ephemeral: false});
 
