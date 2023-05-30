@@ -1,5 +1,6 @@
 
 var seed = (Math.floor(Math.random() * 1000) % 3)
+var user = prompt('rock, paper, or scissors?')
 console.log(seed)
 if (seed === 0){
     console.log('rock')

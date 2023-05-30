@@ -289,8 +289,9 @@ client.on('interactionCreate', async interaction => {
     changes.setColor('0000FF')
     changes.addFields(
       { name: '⚙️ Version:', value: `3.3`, inline: false },
-      { name: 'Change one:', value: `Added update time to /fact command and updated the facts`, inline: false },
+      { name: 'Change one:', value: `Added update time to /fact command`, inline: false },
       { name: 'Change two:', value: `Added update time for versions`, inline: false },
+      { name: 'Change three:', value: `Updated about me section`, inline: false },
       { name: '⏳ Time of update:', value: `<t:1683645277:f>`, inline: false },
       { name: '\u200b', value: '\u200b' }
       )
