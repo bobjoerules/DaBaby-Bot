@@ -35,7 +35,7 @@ client.once('ready', () => {
   console.log('In ' + client.guilds.cache.size + ' servers')
   //sets th icon of if the bot is dnd, Idle, Online
   client.user.setPresence({
-    activities: [{ name: `memes`, type: ActivityType.Competing }],
+    activities: [{ name: `I'm Da Baby`, type: ActivityType.Custom }],
     status: 'online',
   });
   //sets activity
